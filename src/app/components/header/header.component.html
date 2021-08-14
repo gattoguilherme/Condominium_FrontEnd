@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-diamond-fill" style="margin-right:5px" viewBox="0 0 16 16">
+      <path d="M2.45 7.4 7.2 1.067a1 1 0 0 1 1.6 0L13.55 7.4a1 1 0 0 1 0 1.2L8.8 14.933a1 1 0 0 1-1.6 0L2.45 8.6a1 1 0 0 1 0-1.2z"/>
+    </svg>
+    <a routerLink="" class="navbar-brand">Esmeralda</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a routerLink="dweller-list" class="nav-link">Gerenciar Usuários</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav" dropdown>
+        <li class="nav-item dropdown">
+          <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+            role="button" style="cursor: pointer" data-bs-toggle="dropdown" aria-expanded="false">
+            Monka
+          </a>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" routerLink="profile">Profile</a></li>
+            <li><a class="dropdown-item" routerLink="">Sair</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
