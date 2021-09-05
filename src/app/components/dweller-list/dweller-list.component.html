@@ -1,4 +1,7 @@
+<div class="input-group mb-3 col-md-5">
+  <input type="text" class="form-control" placeholder="Nome condominiado" aria-label="Nome condominiado" aria-describedby="button-addon2" (input)="onKeyPress($event)">
+</div>
+
 <div class="container" *ngFor="let d of dwellers">
   <app-dweller-card [dweller]=d></app-dweller-card>
 </div>
-

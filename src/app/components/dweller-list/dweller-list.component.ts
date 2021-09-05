@@ -1,49 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Dweller } from '../../models/DwellerModel';
+import { DwellerService } from '../../services/dweller.service';
 
 @Component({
   selector: 'app-dweller-list',
   templateUrl: './dweller-list.component.html',
-  styleUrls: ['./dweller-list.component.css']
+  styleUrls: ['./dweller-list.component.css'],
 })
 export class DwellerListComponent implements OnInit {
+  public dwellers: Array<Dweller> = [];
 
-  public dwellers: Array<Dweller> = [
-    {guid: "xxxxxxxx", name: "Guilherme Gatto",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-    {guid: "xxxxxxxx", name: "blabla",  buildName: "Esmeralda", aptNumber: 1907},
-    {guid: "xxxxxxxx", name: "blablu",  buildName: "Jade", aptNumber: 1908},
-    {guid: "xxxxxxxx", name: "blable",  buildName: "Rubi", aptNumber: 1909},
-  ]
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private dwellerService: DwellerService) {
   }
 
+  ngOnInit(): void {
+    this.dwellerService.dwellersObservable.subscribe(res => this.dwellers = res);
+    this.dwellerService.SetObservableList("");
+
+    // this.dwellerService.getById().subscribe(
+    //   (success) => {
+    //     let res = success;
+    //     console.log(res);
+    //   },
+    //   (error) => console.log(error)
+    // );
+  }
+
+  onKeyPress(event: any) {
+    console.log(event.target.value);
+    this.dwellerService.SetObservableList(event.target.value);
+  }
 }

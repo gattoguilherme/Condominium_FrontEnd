@@ -1,7 +1,11 @@
 .card {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
-  width: 40rem;
+  width: 20rem;
+}
+
+.btn {
+  text-align: center;
 }

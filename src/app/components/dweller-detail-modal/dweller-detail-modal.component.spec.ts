@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DwellerDetailComponent } from './dweller-detail.component';
+import { DwellerDetailModalComponent } from './dweller-detail-modal.component';
 
-describe('DwellerDetailComponent', () => {
-  let component: DwellerDetailComponent;
-  let fixture: ComponentFixture<DwellerDetailComponent>;
+describe('DwellerDetailModalComponent', () => {
+  let component: DwellerDetailModalComponent;
+  let fixture: ComponentFixture<DwellerDetailModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DwellerDetailComponent ]
+      declarations: [ DwellerDetailModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DwellerDetailComponent);
+    fixture = TestBed.createComponent(DwellerDetailModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
