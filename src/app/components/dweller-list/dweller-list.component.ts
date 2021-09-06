@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dweller } from '../../models/DwellerModel';
 import { DwellerService } from '../../services/dweller.service';
+import { LoadService } from '../../services/load.service';
 
 @Component({
   selector: 'app-dweller-list',
@@ -9,14 +10,16 @@ import { DwellerService } from '../../services/dweller.service';
 })
 export class DwellerListComponent implements OnInit {
   public dwellers: Array<Dweller> = [];
+  public loaderStatus: boolean = false;
 
-  constructor(private dwellerService: DwellerService) {
-  }
-
-  ngOnInit(): void {
+  constructor(private dwellerService: DwellerService, private loaderService: LoadService) {
     this.dwellerService.dwellersObservable.subscribe(res => this.dwellers = res);
     this.dwellerService.SetObservableList("");
 
+    this.loaderService.LoaderStatus.subscribe(res => this.loaderStatus = res);
+  }
+
+  ngOnInit(): void {
     // this.dwellerService.getById().subscribe(
     //   (success) => {
     //     let res = success;
@@ -27,7 +30,6 @@ export class DwellerListComponent implements OnInit {
   }
 
   onKeyPress(event: any) {
-    console.log(event.target.value);
     this.dwellerService.SetObservableList(event.target.value);
   }
 }

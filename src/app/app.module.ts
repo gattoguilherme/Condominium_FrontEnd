@@ -14,6 +14,7 @@ import { DwellerListComponent } from './components/dweller-list/dweller-list.com
 import { DwellerCardComponent } from './components/dweller-card/dweller-card.component';
 import { DwellerDetailModalComponent } from './components/dweller-detail-modal/dweller-detail-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DwellerListComponent,
     DwellerCardComponent,
     DwellerDetailModalComponent,
-
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
